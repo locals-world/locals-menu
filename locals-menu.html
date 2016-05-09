@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-menu-behavior/iron-menu-behavior.html">
+<link rel="import" href="../locals-style/locals-style.html">
 
 <!--
 An element providing a solution to no problem in particular.
@@ -36,8 +37,18 @@ Example:
         box-sizing: border-box;
       }
 
-    </style>
+      ::content > .iron-selected {
+        border: none;
+        outline: 0;
+        @apply(--opensans-bold);
+      }
 
+      ::content:active{
+        border: none;
+        outline: 0;
+      }
+
+    </style>
     <content></content>
   </template>
 
@@ -59,7 +70,9 @@ Example:
 
       ready: function() {
         this.addEventListener('iron-select',function(e){
-          console.log('!!!!',this.selected);
+          // console.log('!!!!',this.selected);
+          // console.log('!!!!',e.detail);
+
         });
         // `ready` is called after all elements have been configured, but
         // propagates bottom-up. This element's children are ready, but parents
